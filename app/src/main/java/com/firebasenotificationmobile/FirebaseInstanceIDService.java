@@ -21,7 +21,7 @@ public class FirebaseInstanceIDService extends FirebaseInstanceIdService {
 
         final String token = FirebaseInstanceId.getInstance().getToken();
 
-        String url = "http://192.168.1.101:8000/api/user";
+        String url = "http://notificationfirebase.herokuapp.com/api/user";
         StringRequest request = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
