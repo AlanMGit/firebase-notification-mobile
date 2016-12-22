@@ -22,7 +22,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:hint="Login" />
+                android:hint="Login"
+                android:inputType="text"
+                android:imeOptions="actionNext"/>
 
             <EditText
                 android:id="@+id/edt_senha"
@@ -30,7 +32,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:hint="Senha"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword"
+                android:imeOptions="actionDone"/>
 
             <Button
                 android:text="Logar"
