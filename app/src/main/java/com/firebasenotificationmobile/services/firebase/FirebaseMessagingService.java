@@ -1,11 +1,12 @@
-package com.firebasenotificationmobile;
+package com.firebasenotificationmobile.services.firebase;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 
+import com.firebasenotificationmobile.activity.globais.MainActivity;
+import com.firebasenotificationmobile.R;
 import com.google.firebase.messaging.RemoteMessage;
 
 /**

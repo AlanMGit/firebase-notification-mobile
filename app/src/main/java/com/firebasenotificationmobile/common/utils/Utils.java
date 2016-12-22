@@ -1,4 +1,4 @@
-package com.firebasenotificationmobile.utils;
+package com.firebasenotificationmobile.common.utils;
 
 import android.content.Context;
 import android.widget.Toast;
