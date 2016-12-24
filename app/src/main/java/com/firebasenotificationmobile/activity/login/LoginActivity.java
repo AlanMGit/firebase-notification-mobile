@@ -1,6 +1,7 @@
 package com.firebasenotificationmobile.activity.login;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +16,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.firebasenotificationmobile.R;
+import com.firebasenotificationmobile.activity.globais.MainActivity;
 import com.firebasenotificationmobile.common.utils.Utils;
+import com.firebasenotificationmobile.model.UsuarioLogado;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.gson.Gson;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,9 +51,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private HashMap<String, String> obterParametros() {
         HashMap<String, String> params = new HashMap<>();
-        params.put("login", mEdtLogin.getText().toString());
-        params.put("senha", mEdtSenha.getText().toString());
-
+        params.put("usu_login", mEdtLogin.getText().toString());
+        params.put("usu_senha", mEdtSenha.getText().toString());
         return params;
     }
 
@@ -60,12 +64,14 @@ public class LoginActivity extends AppCompatActivity {
                     "Aguarde...", "Verificando login");
 
             RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
-            String url = "https://notificationfirebase.herokuapp.com/api/login";
+            String url = "http://notificationfirebase.herokuapp.com/api/login";
             StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String s) {
+//                    Gson gson = new Gson();
+//                    UsuarioLogado usuarioLogado = gson.fromJson(s, UsuarioLogado.class);
                     dialog.dismiss();
-                    Utils.setToast(LoginActivity.this, "Foi");
+                    startActivity( new Intent( LoginActivity.this, MainActivity.class ));
                 }
             }, new Response.ErrorListener() {
                 @Override
