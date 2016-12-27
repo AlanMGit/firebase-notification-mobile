@@ -7,6 +7,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.firebasenotificationmobile.R;
 import com.firebasenotificationmobile.common.utils.Utils;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
@@ -21,7 +22,7 @@ public class FirebaseInstanceIDService extends FirebaseInstanceIdService {
 
         final String token = FirebaseInstanceId.getInstance().getToken();
 
-        String url = "http://notificationfirebase.herokuapp.com/api/user";
+        String url = "http://notificationfirebase.herokuapp.com/api/usuario/token";
         StringRequest request = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
@@ -39,7 +40,14 @@ public class FirebaseInstanceIDService extends FirebaseInstanceIdService {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> params = new HashMap<>();
-                params.put("usu_token", token);
+                params.put("token", token);
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> params = new HashMap<>();
+                params.put("token", getString(R.string.token));
                 return params;
             }
         };

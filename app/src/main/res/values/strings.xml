@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FirebaseNotificationMobile</string>
+    <string name="token">bf12e1515c25c7d8c0352f1413ab9a15</string>
 </resources>
